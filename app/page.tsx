@@ -15,7 +15,7 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const carouselImages = ['/imagenes/2.1.webp', '/imagenes/2.2.webp', '/imagenes/2.3.webp'];
 
-  const [timeLeft, setTimeLeft] = useState(15 * 60);
+  const [timeLeft, setTimeLeft] = useState(12 * 60);
 
   useEffect(() => {
     if (timeLeft <= 0) return;
@@ -64,10 +64,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      {/* Top Banner */}
-      <div className={styles.topBanner}>
-        ¡OFERTA TERMINA EN: <span className={styles.timer}>{formatTime(timeLeft)}</span> | APROVECHA MÁS DEL 80% DE DESCUENTO HOY 🔥
-      </div>
+
 
       {/* Hero Section */}
       <section className={styles.hero}>
@@ -214,7 +211,7 @@ export default function Home() {
           ].map((bonus, idx) => (
             <div key={idx} className={styles.bonusCard}>
               <div className={styles.bonusImgWrapper}>
-                <Image src={`/imagenes/${bonus.img}`} alt={bonus.tag} width={200} height={200} className={styles.imgResponsive} />
+                <Image src={`/imagenes/${bonus.img}`} alt={bonus.tag} width={200} height={200} className={styles.bonusImg} />
               </div>
               <div className={styles.bonusContent}>
                 <h4>{bonus.tag}</h4>
@@ -258,12 +255,12 @@ export default function Home() {
           </div>
 
           <div className={styles.offerList}>
-            <div className={styles.offerRow}><span>• Recetario de +300 Desayunos de la nutricionista</span> <span>24.99</span></div>
-            <div className={styles.offerRow}><span>• Bonus 1: 200 postres sin azúcar</span> <span>9.99</span></div>
-            <div className={styles.offerRow}><span>• Bonus 2: 20 recetas de pan sin gluten</span> <span>7.99</span></div>
-            <div className={styles.offerRow}><span>• Bonus 3: 60 Zumos Detox purificantes</span> <span>9.99</span></div>
-            <div className={styles.offerRow}><span>• Bonus 4: Plan nutricional de 30 días</span> <span>7.99</span></div>
-            <div className={styles.offerRow}><span>• Bonus 5: Guía nutricional en video</span> <span>4.99</span></div>
+            <div className={styles.offerRow}><span>• Recetario de +300 Desayunos de la nutricionista</span> <span className={styles.crossedPrice}>$24.99</span></div>
+            <div className={styles.offerRow}><span>• Bonus 1: 200 postres sin azúcar</span> <span className={styles.crossedPrice}>$9.99</span></div>
+            <div className={styles.offerRow}><span>• Bonus 2: 20 recetas de pan sin gluten</span> <span className={styles.crossedPrice}>$7.99</span></div>
+            <div className={styles.offerRow}><span>• Bonus 3: 60 Zumos Detox purificantes</span> <span className={styles.crossedPrice}>$9.99</span></div>
+            <div className={styles.offerRow}><span>• Bonus 4: Plan nutricional de 30 días</span> <span className={styles.crossedPrice}>$7.99</span></div>
+            <div className={styles.offerRow}><span>• Bonus 5: Guía nutricional en video</span> <span className={styles.crossedPrice}>$4.99</span></div>
             <div className={styles.offerTotalNormal}>PRECIO TOTAL NORMAL: <span>$65.94</span></div>
           </div>
 
@@ -277,6 +274,10 @@ export default function Home() {
               <span>POR TIEMPO LIMITADO</span>
             </div>
             <div className={styles.offerPrice}>9,99</div>
+          </div>
+
+          <div className={styles.subtleTimerContainer}>
+            Oferta expira en: <span className={styles.subtleTime}>{formatTime(timeLeft)}</span>
           </div>
 
           <a
@@ -314,7 +315,6 @@ export default function Home() {
           <div className={styles.testimonialCard}>
             <p className={styles.testimonialQuote}>&quot;Nunca pensé que podría desayunar dulce y seguir bajando de peso. ¡Las recetas son increíbles!&quot;</p>
             <div className={styles.testimonialAuthor}>
-              <div className={styles.avatarWrapper}><Image src="/imagenes/19.jfif" alt="María García" width={50} height={50} className={styles.avatarImg} /></div>
               <div>
                 <strong>María García</strong>
                 <div className={styles.stars}>⭐⭐⭐⭐⭐</div>
@@ -324,7 +324,6 @@ export default function Home() {
           <div className={styles.testimonialCard}>
             <p className={styles.testimonialQuote}>&quot;Todo está en un solo lugar y me siento con una energía que no tenía antes. 100% recomendado.&quot;</p>
             <div className={styles.testimonialAuthor}>
-              <div className={styles.avatarWrapper}><Image src="/imagenes/20.jfif" alt="Lucía Méndez" width={50} height={50} className={styles.avatarImg} /></div>
               <div>
                 <strong>Lucía Méndez</strong>
                 <div className={styles.stars}>⭐⭐⭐⭐⭐</div>
@@ -334,7 +333,6 @@ export default function Home() {
           <div className={styles.testimonialCard}>
             <p className={styles.testimonialQuote}>&quot;Es que más me gusta es la variedad. Ya no me aburro de comer siempre lo mismo.&quot;</p>
             <div className={styles.testimonialAuthor}>
-              <div className={styles.avatarWrapper}><Image src="/imagenes/21.jfif" alt="Elena Sanz" width={50} height={50} className={styles.avatarImg} /></div>
               <div>
                 <strong>Elena Sanz</strong>
                 <div className={styles.stars}>⭐⭐⭐⭐⭐</div>
